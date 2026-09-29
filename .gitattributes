@@ -1,0 +1,8 @@
+# One codebase for Windows and Linux: LF in the repo, CRLF only where Windows needs it.
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.png binary
+*.jpg binary
+*.ico binary
