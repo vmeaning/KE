@@ -3,7 +3,7 @@
 KE is a service for managing configuration items (a CMDB) of an IT department. It runs **on-prem**, users work in a **browser**, and one codebase must run on **Windows and Linux** servers. Product owner (PO): Yura.
 
 - Talk to the PO in **Russian**; technical terms may stay in English. Questions to the PO: a numbered list, each with options and your recommendation first, so he can answer "1a, 2c". Disagree openly when you see a better option.
-- Current stage: **before architecture** — no stack chosen, no product code. The "Engineering rules" section below is filled in by the Architect in phase 0. While it is empty, nobody writes product code.
+- Current stage and next steps: `docs/STATUS.md` (the main session reads it first and updates it at the end of each stage or working session). Until phase 0 there is no stack and no product code. The "Engineering rules" section below is filled in by the Architect in phase 0. While it is empty, nobody writes product code.
 
 ## Read before working
 - `docs/TEAM_PROCESS.md` — roles, task cycle, gates, labels, escalation, and **decisions reserved for the PO (§2)**.
