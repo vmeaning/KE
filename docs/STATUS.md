@@ -4,19 +4,19 @@
 > Новая сессия начинает с этого файла: «Прочитай `docs/STATUS.md`, задача: …».
 
 ## Где мы сейчас
-**Этап A — требования** ([TEAM_PROCESS.md](TEAM_PROCESS.md) §3). Первая порция требований на ревью у ВП в PR #3 (ветка `claude/tender-davinci-ftetdi`).
+**Этап A — требования** ([TEAM_PROCESS.md](TEAM_PROCESS.md) §3). Первая порция требований прошла ревью ВП и ждёт утверждения в PR #3 (ветка `claude/tender-davinci-ftetdi`).
 
 | Документ | Состояние |
 |---|---|
 | [TEAM_PROCESS.md](TEAM_PROCESS.md) v1.0 — регламент, роли, процесс | утверждён ВП 2026-10-07 |
 | [requirements/README.md](requirements/README.md) — границы, роли и права, НФТ, фичи F-01…F-31 | ревью ВП пройдено, правки внесены; ждёт утверждения |
 | [requirements/GLOSSARY.md](requirements/GLOSSARY.md) | замечаний нет; ждёт утверждения вместе с порцией |
-| [requirements/domain-model.md](requirements/domain-model.md) | **на ревью у ВП** |
+| [requirements/domain-model.md](requirements/domain-model.md) | ревью ВП пройдено (16 замечаний внесены); ждёт утверждения |
 | [requirements/discovery.md](requirements/discovery.md) | рабочий материал: анализ источников и **все решения ВП** (§4 — P-1…P-32, §5.3 — W-1…W-6, §7 — раунды 1–2) |
 | `requirements/features/` | пусто: следующий шаг |
 
 ## Следующие шаги
-1. ВП заканчивает ревью доменной модели → правки → ВП утверждает порцию → статусы «утверждено» → merge PR #3.
+1. ВП утверждает порцию → статусы «утверждено» → merge PR #3.
 2. **Новая сессия, роль Аналитик (`/analyst`).** Файлы фич F-01…F-31: user stories и бизнес-правила по шаблону `.claude/skills/analyst/templates/feature.md`. Сценарии приёмки пишутся позже, перед фазой (допущение A-9). Фичи — порциями, отдельными PR; ВП утверждает каждую порцию.
 3. **Роль Архитектор (`/architect`).** `ARCHITECTURE.md`, ADR по стеку и поставке, roadmap фаз. Входные ограничения:
    - on-prem, браузер;
