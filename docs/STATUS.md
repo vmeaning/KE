@@ -6,7 +6,7 @@
 ## Где мы сейчас
 **Этап A — требования** ([TEAM_PROCESS.md](TEAM_PROCESS.md) §3).
 - Порция 1 требований утверждена ВП 2026-10-10 и смержена в `main` (PR #3).
-- Порция 2 — файлы фич F-19, F-01, F-03, F-02, F-04 — **draft, ждёт ответов ВП на вопросы 1–10 и утверждения** (PR из ветки `claude/stoic-rubin-evheny`). Вопросы — в [requirements/features/README.md](requirements/features/README.md).
+- Порция 2 — файлы фич F-19, F-01, F-03, F-02, F-04 — **draft, ждёт ответов ВП на вопросы 1–10 и утверждения** (PR #4, ветка `claude/stoic-rubin-evheny`). Вопросы — в [requirements/features/README.md](requirements/features/README.md).
 
 | Документ | Состояние |
 |---|---|
