@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Creates or updates the GitHub labels from docs/TEAM_PROCESS.md §10.
-# Run once from the repository root (Git Bash on Windows): bash scripts/setup-labels.sh
+# Run once from the repository root: bash scripts/setup-labels.sh
 set -euo pipefail
 
 label() { gh label create "$1" --color "$2" --description "$3" --force >/dev/null && echo "ok  $1"; }
@@ -43,3 +43,4 @@ label "rework-3"  "e4606d" "Third rework round: next FAIL escalates"
 label "escalated" "b60205" "Escalated to the Lead after rework-3"
 label "needs-po"  "fbca04" "Waiting for a product owner decision"
 label "escaped"   "d73a4a" "Bug found after merge in verified code"
+label "process-violation" "b60205" "Status guard found a break of the status model (TEAM_PROCESS §4.5)"

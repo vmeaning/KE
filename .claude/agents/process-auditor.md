@@ -24,6 +24,7 @@ Input: `Mode: escalation  Issue: #N`, `Mode: interim  Phase: N  Since: <date or 
 Use `gh … --json … --jq …` and small Node scripts in `.claude/tmp/` to compute numbers. Don't pull raw JSON dumps into your context. Useful sources:
 - Issues and labels: `gh issue list --label phase:<N> --state all --json number,title,labels,state,createdAt,closedAt`
 - Label history (rework rounds, status timing): `gh api repos/{owner}/{repo}/issues/<N>/timeline --paginate`
+- Status model check (TEAM_PROCESS §4.5), no tokens spent on reading timelines: `GH_TOKEN=$(gh auth token) node scripts/status-guard.mjs --repo {owner}/{repo}` and `gh issue list --label process-violation --state all`
 - PRs: `gh pr list --state all --search "<N> in:body" --json number,headRefName,mergedAt,additions,deletions` and `gh pr view <M> --json comments,reviews,commits`
 - CI: `gh run list --branch task/<N>-<slug> --json conclusion,headSha,createdAt,workflowName`
 - Token ledger (local, not in git), in the main checkout: `$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")/.claude/logs/`

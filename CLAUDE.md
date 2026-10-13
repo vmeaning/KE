@@ -17,7 +17,7 @@ Requirements `docs/requirements/` · architecture `docs/ARCHITECTURE.md` · ADR 
 
 ## Working rules (all roles)
 - **Evidence, not claims.** "Done" and "passes" mean you ran the command in this session and quote its result line. Never report something you did not verify; say "not verified" instead.
-- **GitHub via `gh`.** Pass multi-line text with `--body-file` (write the file with the Write tool into `.claude/tmp/`), never inline heredocs — quoting differs between Git Bash and PowerShell.
+- **GitHub via `gh`.** Pass multi-line text with `--body-file` (write the file with the Write tool into `.claude/tmp/`), never inline heredocs — quoting breaks across shells and is easy to get wrong.
 - **Branches.** Never push to `main`, never force-push, never `--no-verify` (hooks block these). Task branches `task/<N>-<slug>`, document branches `docs/<slug>`. Only the Lead merges (squash).
 - **Git in a worktree** (subagents with `isolation: worktree` start in their own worktree):
   ```
@@ -32,7 +32,7 @@ Requirements `docs/requirements/` · architecture `docs/ARCHITECTURE.md` · ADR 
 - **Cross-platform.** Product code, scripts and tests must work on Windows and Linux. Build paths with path APIs, not string concatenation. Don't rely on file-name case, a specific shell or line endings (`.gitattributes` rules). Every OS-specific branch in code needs a test on both OSes in CI.
 - **Secrets** never go into git, logs, tests or examples. Use placeholders.
 - **Scope.** Do the task, not more. Put anything you notice outside the scope under "Noticed, not fixed" in your report.
-- **Shell on this machine:** Windows 10, Git Bash. Commands in instructions are written for bash. `git`, `gh`, `node` and `npm` behave the same in PowerShell.
+- **Team server:** Linux VM (Ubuntu 24.04), bash, user without admin rights (`docs/SETUP_SERVER.md`). Windows is covered by CI, not by the machine the agents run on. Fallback: a Claude Code cloud session, where `git push` works only to the session branch.
 
 ## Engineering rules
 *To be filled by the Architect in phase 0: stack, repository layout, and exact commands for install, lint, format, typecheck, unit tests, integration tests, e2e, build and local run with demo data. Also where tests live and how a test references an acceptance criterion (`#N ACn`).*
