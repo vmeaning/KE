@@ -1,0 +1,56 @@
+name: Status guard
+
+# Checks status:* and rework-* label changes against docs/TEAM_PROCESS.md §4.5
+# and mirrors the status to the Projects board when PROJECT_TOKEN is set.
+on:
+  issues:
+    types: [labeled, unlabeled]
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: "Issue number; empty = report on all Issues (nothing is written)"
+        required: false
+
+# Only the last run per Issue matters: it re-reads the whole timeline.
+concurrency:
+  group: status-guard-${{ github.event.issue.number || inputs.issue || 'all' }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # gh issue edit --add-label X --remove-label Y arrives as two events; let both land.
+      - name: Wait for paired label edits
+        if: github.event_name == 'issues'
+        run: sleep 20
+
+      - name: Check one Issue
+        if: github.event_name == 'issues' || inputs.issue != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          KE_PROJECT_NUMBER: ${{ vars.KE_PROJECT_NUMBER }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number || inputs.issue }}
+        run: node scripts/status-guard.mjs --repo "$REPO" --issue "$ISSUE" --apply
+
+      - name: Report on all Issues
+        if: github.event_name == 'workflow_dispatch' && inputs.issue == ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: node scripts/status-guard.mjs --repo "$REPO" >> "$GITHUB_STEP_SUMMARY"
