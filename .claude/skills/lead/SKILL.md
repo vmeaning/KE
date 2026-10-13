@@ -26,7 +26,7 @@ The phase tracking Issue (`type:phase`, template [templates/phase-tracking.md](t
 | `status:blocked` | anyone | a question stops the work (not a rework round) |
 | `status:done` | Lead | merged and closed |
 
-A task has exactly one `status:*` label. Replace it; never stack them.
+A task has exactly one `status:*` label. Replace it; never stack them. Only the transitions in TEAM_PROCESS §4.5 are allowed: the status guard Action checks every label change and marks breaks with `process-violation`.
 
 Fetch compactly, for example:
 `gh issue list --label phase:<N> --state all --json number,title,labels,state --jq '.[] | [.number, .title, ([.labels[].name] | join(","))] | @tsv'`

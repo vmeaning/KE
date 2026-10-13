@@ -1,0 +1,57 @@
+name: Task
+description: A task card for the team (same fields as .claude/skills/lead/templates/issue-task.md). Можно писать по-русски.
+title: "[phase:N] "
+labels: ["type:task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The Lead turns this card into a ready task: adds labels (`area:*`, `phase:N`, `size:*`, `gate:*`) and sets `status:ready` only when the Definition of Ready holds (TEAM_PROCESS §4.1). Status changes are checked by the status guard (§4.5).
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Phase spec §, feature F-NN (US, AC), contract operationIds, design screen S-NN.
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What exists when this is done and why it matters.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What to do
+      description: Concrete, unambiguous steps. No design decisions left open.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Numbered and verifiable.
+      value: |
+        - [ ] AC1 —
+        - [ ] AC2 —
+    validations:
+      required: true
+  - type: textarea
+    id: touches
+    attributes:
+      label: Touches
+      description: Modules and paths this task will change.
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+  - type: input
+    id: dependencies
+    attributes:
+      label: Dependencies
+      placeholder: "Blocked by #…"
+  - type: textarea
+    id: tester-notes
+    attributes:
+      label: Notes for the tester
+      description: Test data, risky areas, environments (optional).

@@ -153,7 +153,7 @@ GitHub Issue — это и есть карточка в стиле Jira:
 ## 7. Что меняется в регламенте (после решения ВП)
 
 Одна задача `type:process`, отдельный PR, регламент → v1.1:
-1. §12.1: «рабочая станция на Windows 10» → «сервер команды: Linux-VM», плюс ссылка на новый `docs/ops/SETUP_AGENT_SERVER.md`, который заменит `SETUP_WORKSTATION.md`.
+1. §12.1: «рабочая станция на Windows 10» → «сервер команды: Linux-VM», плюс ссылка на новый `docs/SETUP_SERVER.md`, который заменит `SETUP_WORKSTATION.md`. Не в `docs/ops/`: там runbook администратора продукта, а это инфраструктура команды.
 2. §12.5: Планировщик заданий → таймер systemd; лимиты и lock-файл остаются.
 3. `CLAUDE.md`: строка «Shell on this machine: Windows 10, Git Bash» → Linux, bash.
 4. §8 и §12.3: форма Issue, доска Projects, сторож статусной модели (§4.3).
