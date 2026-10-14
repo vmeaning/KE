@@ -42,7 +42,7 @@ Read first: `CLAUDE.md`, `docs/TEAM_PROCESS.md` (§2 PO decisions, §8 artifacts
 ### 2. Feature specification
 
 Use [templates/feature.md](templates/feature.md). Rules:
-- User stories: «Как <роль>, я хочу <возможность>, чтобы <ценность>», INVEST, ID `F-NN.USm`.
+- User stories: «Как пользователь с правом «<право>», я хочу <возможность>, чтобы <ценность>», INVEST, ID `F-NN.USm`. Roles are configurable, so a story names the permission, not a default role; use «Как пользователь» when every role has the capability. Default roles holding the permission go in the §2 table [PO 2026-10-14].
 - Business rules `F-NN.BRk`: one rule per item, precise, with an example.
 - Acceptance scenarios `F-NN.ACj`, Given/When/Then, concrete data. For each story cover: the happy path, validation failures, permission denied, not found / already retired, empty and large data, and concurrent edits of the same object where it can happen.
 - UI needs: which screens and interactions are affected (input for the designer). No layouts.
